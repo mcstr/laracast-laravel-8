@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\CssSelector\Parser\Handler\CommentHandler;
+
 return [
 
     /*
@@ -174,6 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //    ide-helper
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 

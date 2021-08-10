@@ -20,13 +20,15 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
     return view('posts', [
-        'posts' => Post::latest()->with(['category', 'author'])->get()
+        'posts' => Post::latest()->with(['category', 'author'])->get(),
+        'jamones' => User::first()
     ]);
 });
 
 Route::get('posts/{post:slug}', function (Post $post) {
     return view('post', [
         'post' => $post
+
     ]);
 });
 

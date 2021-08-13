@@ -23,7 +23,7 @@
                 {{-- {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500 text-white' : ''}}"
                  --}}
                     <x-dropdown-item
-                        href="/categories/{{ $category->slug }}"
+                        href="/?category={{ $category->slug }}"
                         :active="isset($currentCategory) && $currentCategory->is($category)"
 {{--                        we could also set the condition for the active using the request()->is('category->slug') this will check if that part is present in the url--}}
                     >
@@ -58,7 +58,7 @@
         <!-- Search -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
             <form method="GET" action="#">
-                <input type="text" name="search" placeholder="Find something"
+                <input type="text" name="search" placeholder="Find something" value="{{ request('search') }}"
                         class="bg-transparent placeholder-black font-semibold text-sm">
             </form>
         </div>

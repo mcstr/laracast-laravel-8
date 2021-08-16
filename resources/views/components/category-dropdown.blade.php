@@ -15,7 +15,7 @@
                 {{-- {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500 text-white' : ''}}"
                  --}}
                     <x-dropdown-item
-                        href="/?category={{ $category->slug }}"
+                        href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}"
                         :active="isset($currentCategory) && $currentCategory->is($category)"
                         {{-- we could also set the condition for the active using the request()->is('category->slug') this will check if that part is present in the url--}}
                     >

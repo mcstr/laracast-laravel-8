@@ -18,20 +18,20 @@ class DatabaseSeeder extends Seeder
     {
         // in case we are refreshing the database we do not need to truncate
 
-       User::truncate();
-       Category::truncate();
-       Post::truncate();
+        User::truncate();
+        Category::truncate();
+        Post::truncate();
 
-       // We can also implicitly decide what data will be one not generated with faker
-       // This will create a User with fake data but the name will be John Doe.
+        // We can also implicitly decide what data will be one not generated with faker
+        // This will create a User with fake data but the name will be John Doe.
 
-       $user = User::factory()->create([
-           'name' => 'John Doe'
-       ]);
+        //    $user = User::factory()->create([
+        //        'name' => 'John Doe'
+        //    ]);
 
-       Post::factory(5)->create([
-            'user_id' => $user->id
-       ]);
-        
+        //    Post::factory(5)->create([
+        //         'user_id' => $user->id
+        //    ]);
+
     }
 }

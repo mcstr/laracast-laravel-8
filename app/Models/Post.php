@@ -42,7 +42,6 @@ class Post extends Model
 
 
     protected $guarded = [];
-    private $todo;
 
     public function scopeFilter($query, array $filters)
     {
@@ -94,6 +93,14 @@ class Post extends Model
 
     public function author()
     {
+        // normally laravel will make the relationship using the method name
+        // as a reference. When the method name do not correspond with the table name
+        // we need to specify also the column we want to reference as seeing below
+
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

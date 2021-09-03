@@ -10,7 +10,7 @@ class SessionsController extends Controller
     {
         auth()->logout();
 
-        return redirect('/')->with('sucess', 'Goodbye!');
+        return redirect('/')->with('success', 'Goodbye!');
     }
 
     public function store()
@@ -18,13 +18,13 @@ class SessionsController extends Controller
         // validate the request
 
         $attributes = request()->validate([
-            'email'=> 'required|email',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
         // attempt to authenticate and log the user
         // with the provided credentials
-        if (! auth()->attempt($attributes)) {
+        if (!auth()->attempt($attributes)) {
             // auth failed
 
             // an alternative
@@ -33,7 +33,7 @@ class SessionsController extends Controller
             // ->withErrors(['email' => 'Your provided credentials could not be verified']);
 
             throw ValidationException::withMessages([
-            'email' => 'Your provided credentials could not be verified'
+                'email' => 'Your provided credentials could not be verified',
             ]);
         }
 
@@ -41,7 +41,6 @@ class SessionsController extends Controller
         // redirect with success flash message
         return redirect('/')->with('success', 'Welcome Back!');
     }
-
 
     public function create()
     {

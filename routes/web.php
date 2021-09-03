@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// when using the __invoke constructor method, we do not need to use an array with an action
+Route::post('newsletter', NewsletterController::class);
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
